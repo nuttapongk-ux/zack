@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Performance Dashboard</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-content">
+                <h1>Social Media Dashboard</h1>
+                <p>Live Performance Overview</p>
+            </div>
+            <div class="header-status">
+                <span class="status-indicator"></span> Live Data Sync
+            </div>
+        </header>
+
+        <div id="loading" class="loading-overlay">
+            <div class="spinner"></div>
+            <p>Fetching Data...</p>
+        </div>
+
+        <div id="dashboard-content" class="hidden">
+            <!-- KPI Section -->
+            <section class="kpi-grid">
+                <div class="kpi-card glass">
+                    <div class="kpi-icon">📝</div>
+                    <div class="kpi-info">
+                        <h3>Total Posts</h3>
+                        <p id="total-posts" class="kpi-value">0</p>
+                    </div>
+                </div>
+                <div class="kpi-card glass">
+                    <div class="kpi-icon">🔥</div>
+                    <div class="kpi-info">
+                        <h3>Total Engagement</h3>
+                        <p id="total-engagement" class="kpi-value">0</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Charts Section -->
+            <section class="charts-grid">
+                <div class="chart-card glass">
+                    <h2>Content Format</h2>
+                    <div class="chart-container">
+                        <canvas id="formatChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card glass">
+                    <h2>Month over Month (MOM) Trend</h2>
+                    <div class="chart-container">
+                        <canvas id="momChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Top Posts Section -->
+            <section class="top-posts-grid">
+                <div class="table-card glass">
+                    <h2>Top Posts by Engagement 🔥</h2>
+                    <div class="table-responsive">
+                        <table id="top-eng-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Content Title</th>
+                                    <th>Format</th>
+                                    <th>Engagement</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Rows will be injected by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="table-card glass">
+                    <h2>Top Posts by Reach/View 👁️</h2>
+                    <div class="table-responsive">
+                        <table id="top-reach-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Content Title</th>
+                                    <th>Format</th>
+                                    <th>Reach/View</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Rows will be injected by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js?v=2"></script>
+</body>
+</html>
